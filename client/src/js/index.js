@@ -1,7 +1,7 @@
 // import modules
 import("./form");
 import("./submit");
-
+import { initdb } from "./database";
 // import CSS files
 import "../css/index.css";
 
@@ -18,4 +18,5 @@ window.addEventListener("load", function () {
   document.getElementById("logo").src = Logo;
   document.getElementById("bearThumbnail").src = Bear;
   document.getElementById("dogThumbnail").src = Dog;
+  initdb();
 });
