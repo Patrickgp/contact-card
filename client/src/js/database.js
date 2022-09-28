@@ -25,8 +25,8 @@ export const getDb = async () => {
   // Create a connection to the database database and version we want to use.
   const contactDb = await openDB("contact_db", 1);
 
-  // Create a new transaction and specify the store and data privileges.
-  const tx = contactDb.transaction("contacts", "readonly");
+  // Create a new transaction and specify the database and data privileges.
+  const tx = contactDb.transaction("contact_db", "readonly");
 
   // Open up the desired object store.
   const store = tx.objectStore("contacts");
@@ -49,8 +49,8 @@ export const postDb = async (name, email, phone, profile) => {
   // Create a connection to the database database and version we want to use.
   const contactDb = await openDB("contact_db", 1);
 
-  // Create a new transaction and specify the store and data privileges.
-  const tx = contactDb.transaction("contacts", "readwrite");
+  // Create a new transaction and specify the database and data privileges.
+  const tx = contactDb.transaction("contact_db", "readwrite");
 
   // Open up the desired object store.
   const store = tx.objectStore("contacts");
@@ -77,7 +77,7 @@ export const deleteDb = async (id) => {
   const contactDb = await openDB("contact_db", 1);
 
   // Create a new transaction and specify the store and data privileges.
-  const tx = contactDb.transaction("contacts", "readwrite");
+  const tx = contactDb.transaction("contact_db", "readwrite");
 
   // Open up the desired object store.
   const store = tx.objectStore("contacts");
@@ -97,7 +97,7 @@ export const editDb = async (id, name, email, phone, profile) => {
 
   const contactDb = await openDB("contact_db", 1);
 
-  const tx = contactDb.transaction("contacts", "readwrite");
+  const tx = contactDb.transaction("contact_db", "readwrite");
 
   const store = tx.objectStore("contacts");
 
